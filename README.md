@@ -4,7 +4,7 @@
 
 we can use the client module to interact with the resources. 
 
-`CreateResources:` kubectl get commands are used to create namespaces using yaml files or ad-hoc command in a cluster for eg:
+`Resources:` kubectl get commands are used to create namespaces using yaml files or ad-hoc command in a cluster for eg:
 
 To create the namespaces in the cluster, we fire following kubectl command:
 
