@@ -3,8 +3,6 @@ from kubernetes.client.rest import ApiException
 from kubernetes import client, config
 from kubernetes.client import ApiClient
 
-
-
 def __get_kubernetes_client(bearer_token,api_server_endpoint):
     try:
         configuration = kubernetes.client.Configuration()
@@ -52,7 +50,6 @@ def get_namespace(cluster_details):
         print("TYPE :{}".format(type(e)))
 
 
-
 def create_namespace(cluster_details,namespace):
 
     try:
@@ -73,8 +70,6 @@ def create_namespace(cluster_details,namespace):
         print("TYPE :{}".format(type(e)))
 
 
-
-
 def delete_namespace(cluster_details,namespace):
 
     try:
@@ -91,9 +86,7 @@ def delete_namespace(cluster_details,namespace):
         print("TYPE :{}".format(type(e)))
 
 
-
 if __name__ == '__main__':
-    batch_v1 = client.BatchV1Api()
     cluster_details={
         "bearer_token":"GKE-Bearer-Token",
         "api_server_endpoint":"Ip-k8s-control-plane"
