@@ -20,7 +20,7 @@ Get the list of all namespace
 
 `kubectl get ns`
 
-But In Python, we instantiate BatchV1beta1Api class from client module:
+But In Python, we instantiate CoreV1Api class from client module:
 
 `client_api = client.CoreV1Api()`
 
