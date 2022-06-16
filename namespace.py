@@ -22,7 +22,7 @@ def __get_kubernetes_client(bearer_token,api_server_endpoint):
         print("TYPE :{}".format(type(e)))
         return None
 
-def __format_data_for_create_cronjob(client_output):
+def __format_data_for_create_ns(client_output):
         temp_dict={}
         temp_list=[]
         json_data=ApiClient().sanitize_for_serialization(client_output)
@@ -44,7 +44,7 @@ def get_namespace(cluster_details):
             )
         res=client_api.list_namespace()
 
-        data=__format_data_for_create_cronjob(res)
+        data=__format_data_for_create_ns(res)
         print(data) 
         # print("list of all namespaces :{}".format(res))
     except ApiException as e:
