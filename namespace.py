@@ -20,18 +20,17 @@ def __get_kubernetes_client(bearer_token,api_server_endpoint):
         print("TYPE :{}".format(type(e)))
         return None
 
-def __format_data_for_create_ns(client_output):
+def __format_data_for_ns(client_output):
         temp_dict={}
         temp_list=[]
         json_data=ApiClient().sanitize_for_serialization(client_output)
-        #print("JSON_DATA OF KUBERNETES OBJECT:{}".format(json_data))
-        
-        if type(json_data) is str:
-            print("FORMAT_DATA :{}".format(type(json_data)))
-            json_data = json.loads(json_data)
-        temp_list.append(json_data)
+        if len(json_data["items"]) != 0:
+            for ns in json_data["items"]:
+                temp_dict={
+                    "namespace": ns["metadata"]["name"]                  
+                }
+                temp_list.append(temp_dict)
         return temp_list
-
 
 def get_namespace(cluster_details):
 
@@ -42,7 +41,7 @@ def get_namespace(cluster_details):
             )
         res=client_api.list_namespace()
 
-        data=__format_data_for_create_ns(res)
+        data=__format_data_for_ns(res)
         print(data) 
         # print("list of all namespaces :{}".format(res))
     except ApiException as e:
