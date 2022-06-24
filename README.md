@@ -33,7 +33,7 @@ and storing in a var named as client_api. so furture we can use it.
 
 #### Authenticating to the Kubernetes API server
 
-But what if you want to list all the automated cronjobs of a GKE Cluster, you must need to authenticate the configuration
+But what if you want to list all the automated namespace of a GKE Cluster, you must need to authenticate the configuration
 
 `configuration.api_key = {"authorization": "Bearer" + bearer_token}` 
 
